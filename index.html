@@ -1,552 +1,2386 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sasidharan Balasundaram | Audit Analyst Portfolio</title>
+    <title>Sasidharan Balasundaram | Audit Analyst & Data Analytics Portfolio</title>
 
-https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            900: '#0f172a',
+                        },
+                        sap: {
+                            500: '#0284c7',
+                            600: '#0369a1',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-body{
-    background:#0f172a;
-    color:#f8fafc;
-    line-height:1.6;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-header{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    background:linear-gradient(rgba(15,23,42,.9),rgba(15,23,42,.9)),
-    url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80');
-    background-size:cover;
-    background-position:center;
-}
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-header h1{
-    font-size:3rem;
-    color:#38bdf8;
-}
+    <style>
 
-header h2{
-    margin-top:15px;
-    font-size:1.2rem;
-    font-weight:400;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.btn{
-    margin-top:30px;
-    padding:12px 30px;
-    background:#38bdf8;
-    color:#fff;
-    text-decoration:none;
-    border-radius:8px;
-    transition:.3s;
-}
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
-.btn:hover{
-    background:#0ea5e9;
-}
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
 
-section{
-    padding:80px 10%;
-}
+        .dark-glass {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(30, 41, 59, 0.8);
+        }
 
-.section-title{
-    text-align:center;
-    font-size:2rem;
-    margin-bottom:50px;
-    color:#38bdf8;
-}
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.about{
-    text-align:center;
-}
+        .gradient-bg {
+            background: linear-gradient(
+                135deg,
+                #0f172a 0%,
+                #1e293b 50%,
+                #0f172a 100%
+            );
+        }
 
-.about p{
-    max-width:900px;
-    margin:auto;
-}
+        .resume-btn {
+            transition: all 0.3s ease;
+        }
 
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    margin-top:40px;
-}
+        .resume-btn:hover {
+            transform: translateY(-2px);
+        }
 
-.stat-card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-}
+        .skill-card {
+            transition: all 0.3s ease;
+        }
 
-.stat-card h3{
-    color:#38bdf8;
-    font-size:2rem;
-}
+        .skill-card:hover {
+            transform: translateY(-4px);
+        }
 
-.skills-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    gap:20px;
-}
-
-.skill{
-    margin-bottom:20px;
-}
-
-.skill-name{
-    margin-bottom:8px;
-}
-
-.progress{
-    background:#334155;
-    border-radius:30px;
-    overflow:hidden;
-}
-
-.progress-bar{
-    height:15px;
-    background:#38bdf8;
-}
-
-.timeline{
-    position:relative;
-    max-width:1000px;
-    margin:auto;
-}
-
-.timeline-item{
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:20px;
-}
-
-.projects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:25px;
-}
-
-.project-card{
-    background:#1e293b;
-    border-radius:15px;
-    overflow:hidden;
-    transition:.3s;
-}
-
-.project-card:hover{
-    transform:translateY(-5px);
-}
-
-.project-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.project-content{
-    padding:20px;
-}
-
-.project-content h3{
-    margin-bottom:10px;
-    color:#38bdf8;
-}
-
-.certificates{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-}
-
-.cert{
-    background:#1e293b;
-    padding:20px;
-    border-radius:12px;
-    min-width:250px;
-    text-align:center;
-}
-
-.contact{
-    text-align:center;
-}
-
-.contact p{
-    margin:10px 0;
-}
-
-footer{
-    background:#020617;
-    text-align:center;
-    padding:20px;
-}
-
-@media(max-width:768px){
-
-header h1{
-    font-size:2rem;
-}
-
-header h2{
-    font-size:1rem;
-}
-
-}
-
-</style>
+    </style>
 </head>
 
-<body>
 
-<header>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-500 selection:text-white">
 
-<h1>Sasidharan Balasundaram</h1>
 
-<h2>
-Audit Analyst | Revenue Assurance Specialist |
-Power BI Developer | Excel Automation Expert
-</h2>
+<!-- ========================================================= -->
+<!-- NAVIGATION BAR -->
+<!-- ========================================================= -->
 
-#contactContact Me</a>
+<nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex items-center justify-between h-16">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center font-bold text-lg text-white shadow-lg shadow-blue-500/20">
+                    SB
+                </div>
+
+                <div>
+                    <span class="font-bold text-base tracking-tight block">
+                        Sasidharan B.
+                    </span>
+
+                    <span class="text-xs text-slate-400 block -mt-1">
+                        Audit & Analytics Specialist
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- Desktop Navigation -->
+
+            <div class="hidden lg:flex items-center gap-5 text-sm font-medium">
+
+                <a href="#about"
+                   class="text-slate-300 hover:text-white transition-colors">
+                    About
+                </a>
+
+                <a href="#experience"
+                   class="text-slate-300 hover:text-white transition-colors">
+                    Experience
+                </a>
+
+                <a href="#projects"
+                   class="text-slate-300 hover:text-white transition-colors">
+                    Projects
+                </a>
+
+                <a href="#skills"
+                   class="text-slate-300 hover:text-white transition-colors">
+                    Skills
+                </a>
+
+                <a href="#education"
+                   class="text-slate-300 hover:text-white transition-colors">
+                    Education
+                </a>
+
+                <!-- VIEW RESUME -->
+
+                <a href="Sasidharan_Balasundaram_Resume.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="text-slate-300 hover:text-white transition-colors">
+
+                    <i class="fa-solid fa-eye mr-1"></i>
+                    View Resume
+
+                </a>
+
+
+                <!-- DOWNLOAD RESUME -->
+
+                <a href="Sasidharan_Balasundaram_Resume.pdf"
+                   download="Sasidharan_Balasundaram_Resume.pdf"
+                   class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg transition-all shadow-md shadow-emerald-600/30">
+
+                    <i class="fa-solid fa-download mr-2"></i>
+                    Download Resume
+
+                </a>
+
+            </div>
+
+
+            <!-- Mobile Menu Button -->
+
+            <button id="mobile-menu-btn"
+                    class="lg:hidden text-slate-300 hover:text-white text-xl">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Mobile Navigation -->
+
+    <div id="mobile-menu"
+         class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-3">
+
+        <a href="#about"
+           class="block text-slate-300 hover:text-white py-2">
+            About
+        </a>
+
+        <a href="#experience"
+           class="block text-slate-300 hover:text-white py-2">
+            Experience
+        </a>
+
+        <a href="#projects"
+           class="block text-slate-300 hover:text-white py-2">
+            Projects
+        </a>
+
+        <a href="#skills"
+           class="block text-slate-300 hover:text-white py-2">
+            Skills
+        </a>
+
+        <a href="#education"
+           class="block text-slate-300 hover:text-white py-2">
+            Education
+        </a>
+
+
+        <!-- Mobile View Resume -->
+
+        <a href="Sasidharan_Balasundaram_Resume.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="block bg-slate-700 hover:bg-slate-600 text-center text-white px-4 py-2 rounded-lg font-medium">
+
+            <i class="fa-solid fa-eye mr-2"></i>
+            View Resume
+
+        </a>
+
+
+        <!-- Mobile Download -->
+
+        <a href="Sasidharan_Balasundaram_Resume.pdf"
+           download="Sasidharan_Balasundaram_Resume.pdf"
+           class="block bg-emerald-600 hover:bg-emerald-500 text-center text-white px-4 py-2 rounded-lg font-medium">
+
+            <i class="fa-solid fa-download mr-2"></i>
+            Download Resume
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ========================================================= -->
+<!-- HERO SECTION -->
+<!-- ========================================================= -->
+
+<header id="about"
+        class="pt-28 pb-16 md:pt-36 md:pb-24 gradient-bg text-white relative overflow-hidden">
+
+    <!-- Background Glow -->
+
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2
+                w-96 h-96 bg-blue-600/20 rounded-full blur-3xl
+                pointer-events-none">
+    </div>
+
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+
+            <!-- HERO CONTENT -->
+
+            <div class="lg:col-span-8 space-y-6">
+
+                <div class="inline-flex items-center gap-2
+                            px-3 py-1.5 rounded-full
+                            bg-blue-500/10
+                            border border-blue-500/30
+                            text-blue-300
+                            text-xs font-semibold
+                            tracking-wide uppercase">
+
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+
+                    Available for Telecom Audit, Analytics & SAP SD Learning
+
+                </div>
+
+
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl
+                           font-extrabold tracking-tight leading-tight">
+
+                    Sasidharan Balasundaram
+
+                </h1>
+
+
+                <p class="text-lg sm:text-xl text-blue-200 font-medium">
+
+                    Audit Analyst
+
+                    <span class="text-slate-400">|</span>
+
+                    Revenue Assurance & RCM Specialist
+
+                    <span class="text-slate-400">|</span>
+
+                    SAP S/4HANA SD Learner
+
+                </p>
+
+
+                <p class="text-slate-300 text-base sm:text-lg
+                          leading-relaxed max-w-3xl">
+
+                    Detail-oriented professional with 10+ years of experience
+                    across Telecom Audit, Healthcare Revenue Cycle Management
+                    (RCM), financial reconciliation, MIS reporting and data
+                    validation.
+
+                    Skilled in
+
+                    <strong class="text-white">
+                        Advanced Excel, Power BI, DAX, Power Query and SQL
+                    </strong>
+
+                    with ongoing learning in
+
+                    <strong class="text-white">
+                        SAP S/4HANA SD.
+                    </strong>
+
+                </p>
+
+
+                <!-- CONTACT QUICK LINKS -->
+
+                <div class="flex flex-wrap gap-3 pt-2 text-sm">
+
+
+                    <!-- Phone -->
+
+                    <a href="tel:+919962587200"
+                       class="flex items-center gap-2
+                              text-slate-300 hover:text-white
+                              bg-slate-800/80
+                              px-3.5 py-2 rounded-lg
+                              border border-slate-700/80">
+
+                        <i class="fa-solid fa-phone text-blue-400"></i>
+
+                        +91 9962587200
+
+                    </a>
+
+
+                    <!-- Email -->
+
+                    <a href="mailto:sasiiharii@gmail.com"
+                       class="flex items-center gap-2
+                              text-slate-300 hover:text-white
+                              bg-slate-800/80
+                              px-3.5 py-2 rounded-lg
+                              border border-slate-700/80">
+
+                        <i class="fa-solid fa-envelope text-cyan-400"></i>
+
+                        sasiiharii@gmail.com
+
+                    </a>
+
+
+                    <!-- LinkedIn -->
+
+                    <a href="https://www.linkedin.com/in/sasidharan-balasundaram-a875458b/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="flex items-center gap-2
+                              text-slate-300 hover:text-white
+                              bg-slate-800/80
+                              px-3.5 py-2 rounded-lg
+                              border border-slate-700/80">
+
+                        <i class="fa-brands fa-linkedin text-blue-400"></i>
+
+                        LinkedIn
+
+                    </a>
+
+
+                    <!-- Location -->
+
+                    <span class="flex items-center gap-2
+                                 text-slate-300
+                                 bg-slate-800/80
+                                 px-3.5 py-2 rounded-lg
+                                 border border-slate-700/80">
+
+                        <i class="fa-solid fa-location-dot text-rose-400"></i>
+
+                        Chennai, India
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- HERO BUTTONS -->
+                <!-- ================================================= -->
+
+                <div class="flex flex-wrap items-center gap-4 pt-4">
+
+
+                    <!-- PROJECT BUTTON -->
+
+                    <a href="#projects"
+                       class="bg-gradient-to-r from-blue-600 to-cyan-600
+                              hover:from-blue-500 hover:to-cyan-500
+                              text-white font-semibold
+                              px-6 py-3 rounded-xl
+                              transition-all shadow-lg
+                              shadow-blue-600/30
+                              flex items-center gap-2">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                        View Audit Projects
+
+                    </a>
+
+
+                    <!-- VIEW RESUME -->
+
+                    <a href="Sasidharan_Balasundaram_Resume.pdf"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="resume-btn bg-white
+                              hover:bg-slate-100
+                              text-slate-900
+                              font-semibold
+                              px-6 py-3 rounded-xl
+                              transition-all shadow-lg
+                              flex items-center gap-2">
+
+                        <i class="fa-solid fa-eye text-blue-600"></i>
+
+                        View Resume
+
+                    </a>
+
+
+                    <!-- DOWNLOAD RESUME -->
+
+                    <a href="Sasidharan_Balasundaram_Resume.pdf"
+                       download="Sasidharan_Balasundaram_Resume.pdf"
+                       class="resume-btn bg-emerald-600
+                              hover:bg-emerald-500
+                              text-white font-semibold
+                              px-6 py-3 rounded-xl
+                              transition-all shadow-lg
+                              shadow-emerald-600/30
+                              flex items-center gap-2">
+
+                        <i class="fa-solid fa-file-arrow-down"></i>
+
+                        Download Resume
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- CAREER HIGHLIGHTS -->
+            <!-- ================================================= -->
+
+            <div class="lg:col-span-4">
+
+                <div class="dark-glass rounded-2xl p-6
+                            space-y-5 border border-slate-800
+                            shadow-2xl">
+
+                    <h3 class="text-xs font-bold text-slate-400
+                               uppercase tracking-wider
+                               border-b border-slate-800 pb-3">
+
+                        <i class="fa-solid fa-chart-simple text-blue-400 mr-2"></i>
+
+                        Career Highlights
+
+                    </h3>
+
+
+                    <!-- 10+ YEARS -->
+
+                    <div class="flex items-center justify-between
+                                p-3 rounded-xl
+                                bg-slate-800/50
+                                border border-slate-700/50">
+
+                        <div>
+
+                            <span class="block text-2xl font-bold text-white">
+                                10+ Years
+                            </span>
+
+                            <span class="text-xs text-slate-400">
+                                Telecom & Healthcare Experience
+                            </span>
+
+                        </div>
+
+                        <i class="fa-solid fa-briefcase
+                                  text-2xl text-blue-400/80">
+                        </i>
+
+                    </div>
+
+
+                    <!-- EUROPE -->
+
+                    <div class="flex items-center justify-between
+                                p-3 rounded-xl
+                                bg-slate-800/50
+                                border border-slate-700/50">
+
+                        <div>
+
+                            <span class="block text-2xl font-bold text-cyan-400">
+                                EU Markets
+                            </span>
+
+                            <span class="text-xs text-slate-400">
+                                Telecom Audit Operations
+                            </span>
+
+                        </div>
+
+                        <i class="fa-solid fa-globe
+                                  text-2xl text-cyan-400/80">
+                        </i>
+
+                    </div>
+
+
+                    <!-- POWER BI -->
+
+                    <div class="flex items-center justify-between
+                                p-3 rounded-xl
+                                bg-slate-800/50
+                                border border-slate-700/50">
+
+                        <div>
+
+                            <span class="block text-2xl font-bold text-emerald-400">
+                                Power BI
+                            </span>
+
+                            <span class="text-xs text-slate-400">
+                                DAX & Data Visualization
+                            </span>
+
+                        </div>
+
+                        <i class="fa-solid fa-chart-pie
+                                  text-2xl text-emerald-400/80">
+                        </i>
+
+                    </div>
+
+
+                    <!-- SAP -->
+
+                    <div class="flex items-center justify-between
+                                p-3 rounded-xl
+                                bg-slate-800/50
+                                border border-slate-700/50">
+
+                        <div>
+
+                            <span class="block text-2xl font-bold text-amber-400">
+                                SAP S/4HANA SD
+                            </span>
+
+                            <span class="text-xs text-slate-400">
+                                Ongoing Professional Learning
+                            </span>
+
+                        </div>
+
+                        <i class="fa-solid fa-database
+                                  text-2xl text-amber-400/80">
+                        </i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </header>
 
-<section id="about">
 
-<h2 class="section-title">About Me</h2>
 
-<div class="about">
+<!-- ========================================================= -->
+<!-- SKILLS -->
+<!-- ========================================================= -->
 
-<p>
-Results-driven Audit Analyst with 11+ years of experience in Telecom,
-Revenue Assurance, MIS Reporting, Healthcare Revenue Cycle Management,
-Data Analytics, Power BI Dashboard Development, and Excel Automation.
-Skilled in transforming complex datasets into actionable business insights
-through advanced Excel, Power BI, VBA, SQL, Power Query, reconciliation,
-audit analytics, and process improvement initiatives.
-</p>
+<section id="skills"
+         class="py-16 bg-white border-b border-slate-200">
 
-<div class="stats">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-<div class="stat-card">
-<h3>11+</h3>
-<p>Years Experience</p>
-</div>
+        <div class="text-center max-w-3xl mx-auto mb-12">
 
-<div class="stat-card">
-<h3>100+</h3>
-<p>Audit Reports</p>
-</div>
+            <h2 class="text-xs font-bold text-blue-600
+                       uppercase tracking-widest mb-2">
 
-<div class="stat-card">
-<h3>15+</h3>
-<p>Dashboards</p>
-</div>
+                Core Skills
 
-<div class="stat-card">
-<h3>3</h3>
-<p>Business Domains</p>
-</div>
+            </h2>
 
-</div>
+            <h3 class="text-2xl sm:text-3xl
+                       font-extrabold text-slate-900">
 
-</div>
+                Technical Toolkit & Functional Expertise
+
+            </h3>
+
+            <p class="mt-3 text-slate-600 text-sm sm:text-base">
+
+                Combining Telecom Audit, Healthcare RCM,
+                MIS reporting and modern analytics tools.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- FILTER BUTTONS -->
+
+        <div class="flex flex-wrap justify-center gap-2 mb-8"
+             id="skill-filters">
+
+            <button class="skill-filter-btn active
+                           bg-slate-900 text-white
+                           px-4 py-2 rounded-lg
+                           text-xs sm:text-sm font-semibold"
+                    data-category="all">
+
+                All Competencies
+
+            </button>
+
+
+            <button class="skill-filter-btn
+                           bg-slate-100 text-slate-600
+                           hover:bg-slate-200
+                           px-4 py-2 rounded-lg
+                           text-xs sm:text-sm font-semibold"
+                    data-category="telecom">
+
+                Telecom & Audit
+
+            </button>
+
+
+            <button class="skill-filter-btn
+                           bg-slate-100 text-slate-600
+                           hover:bg-slate-200
+                           px-4 py-2 rounded-lg
+                           text-xs sm:text-sm font-semibold"
+                    data-category="rcm">
+
+                Healthcare RCM
+
+            </button>
+
+
+            <button class="skill-filter-btn
+                           bg-slate-100 text-slate-600
+                           hover:bg-slate-200
+                           px-4 py-2 rounded-lg
+                           text-xs sm:text-sm font-semibold"
+                    data-category="analytics">
+
+                Data Analytics & BI
+
+            </button>
+
+
+            <button class="skill-filter-btn
+                           bg-slate-100 text-slate-600
+                           hover:bg-slate-200
+                           px-4 py-2 rounded-lg
+                           text-xs sm:text-sm font-semibold"
+                    data-category="erp">
+
+                SAP ERP
+
+            </button>
+
+        </div>
+
+
+
+        <!-- SKILL CARDS -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2
+                    lg:grid-cols-4 gap-6"
+             id="skills-grid">
+
+
+            <!-- Excel -->
+
+            <div class="skill-card glass-card rounded-2xl p-6
+                        space-y-3 shadow-sm"
+                 data-category="analytics">
+
+                <div class="w-10 h-10 rounded-lg
+                            bg-blue-50 text-blue-600
+                            flex items-center justify-center
+                            text-lg">
+
+                    <i class="fa-solid fa-file-excel"></i>
+
+                </div>
+
+                <h4 class="font-bold text-slate-900">
+                    Advanced Excel
+                </h4>
+
+                <p class="text-xs text-slate-600">
+                    XLOOKUP, INDEX-MATCH, Pivot Tables,
+                    IF, SUMIF, COUNTIF, dashboards and
+                    audit trackers.
+                </p>
+
+            </div>
+
+
+
+            <!-- Power BI -->
+
+            <div class="skill-card glass-card rounded-2xl p-6
+                        space-y-3 shadow-sm"
+                 data-category="analytics">
+
+                <div class="w-10 h-10 rounded-lg
+                            bg-cyan-50 text-cyan-600
+                            flex items-center justify-center
+                            text-lg">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                </div>
+
+                <h4 class="font-bold text-slate-900">
+                    Power BI & DAX
+                </h4>
+
+                <p class="text-xs text-slate-600">
+                    Data modeling, DAX measures,
+                    Power Query, dashboards and
+                    reporting automation.
+                </p>
+
+            </div>
+
+
+
+            <!-- SAP -->
+
+            <div class="skill-card glass-card rounded-2xl p-6
+                        space-y-3 shadow-sm"
+                 data-category="erp">
+
+                <div class="w-10 h-10 rounded-lg
+                            bg-sky-50 text-sky-700
+                            flex items-center justify-center
+                            text-lg">
+
+                    <i class="fa-solid fa-boxes-packing"></i>
+
+                </div>
+
+                <h4 class="font-bold text-slate-900">
+                    SAP S/4HANA SD
+                </h4>
+
+                <p class="text-xs text-slate-600">
+                    Order-to-Cash, Sales Orders,
+                    Pricing, Billing and
+                    SD process learning.
+                </p>
+
+            </div>
+
+
+
+            <!-- Telecom -->
+
+            <div class="skill-card glass-card rounded-2xl p-6
+                        space-y-3 shadow-sm"
+                 data-category="telecom">
+
+                <div class="w-10 h-10 rounded-lg
+                            bg-indigo-50 text-indigo-600
+                            flex items-center justify-center
+                            text-lg">
+
+                    <i class="fa-solid fa-scale-balanced"></i>
+
+                </div>
+
+                <h4 class="font-bold text-slate-900">
+                    Telecom Revenue Audit
+                </h4>
+
+                <p class="text-xs text-slate-600">
+                    Retailer incentive audits,
+                    commission validation,
+                    pricing rules and reconciliation.
+                </p>
+
+            </div>
+
+
+
+            <!-- RCM -->
+
+            <div class="skill-card glass-card rounded-2xl p-6
+                        space-y-3 shadow-sm"
+                 data-category="rcm">
+
+                <div class="w-10 h-10 rounded-lg
+                            bg-emerald-50 text-emerald-600
+                            flex items-center justify-center
+                            text-lg">
+
+                    <i class="fa-solid fa-hospital"></i>
+
+                </div>
+
+                <h4 class="font-bold text-slate-900">
+                    Healthcare RCM
+                </h4>
+
+                <p class="text-xs text-slate-600">
+                    AR analysis, payment posting,
+                    credit balances, refunds,
+                    denials and reconciliation.
+                </p>
+
+            </div>
+
+
+
+            <!-- SQL -->
+
+            <div class="skill-card glass-card rounded-2xl p-6
+                        space-y-3 shadow-sm"
+                 data-category="analytics">
+
+                <div class="w-10 h-10 rounded-lg
+                            bg-violet-50 text-violet-600
+                            flex items-center justify-center
+                            text-lg">
+
+                    <i class="fa-solid fa-database"></i>
+
+                </div>
+
+                <h4 class="font-bold text-slate-900">
+                    SQL
+                </h4>
+
+                <p class="text-xs text-slate-600">
+                    Basic querying, filtering,
+                    joins, validation and
+                    transaction-level analysis.
+                </p>
+
+            </div>
+
+
+
+            <!-- Credit Balance -->
+
+            <div class="skill-card glass-card rounded-2xl p-6
+                        space-y-3 shadow-sm"
+                 data-category="rcm">
+
+                <div class="w-10 h-10 rounded-lg
+                            bg-amber-50 text-amber-600
+                            flex items-center justify-center
+                            text-lg">
+
+                    <i class="fa-solid fa-receipt"></i>
+
+                </div>
+
+                <h4 class="font-bold text-slate-900">
+                    Credit Balance & Refunds
+                </h4>
+
+                <p class="text-xs text-slate-600">
+                    Medicare/Medicaid overpayment
+                    handling, refund documentation
+                    and account reconciliation.
+                </p>
+
+            </div>
+
+
+
+            <!-- MIS -->
+
+            <div class="skill-card glass-card rounded-2xl p-6
+                        space-y-3 shadow-sm"
+                 data-category="telecom">
+
+                <div class="w-10 h-10 rounded-lg
+                            bg-rose-50 text-rose-600
+                            flex items-center justify-center
+                            text-lg">
+
+                    <i class="fa-solid fa-list-check"></i>
+
+                </div>
+
+                <h4 class="font-bold text-slate-900">
+                    MIS & Variance Analysis
+                </h4>
+
+                <p class="text-xs text-slate-600">
+                    Daily, weekly and monthly MIS,
+                    variance analysis, reconciliation
+                    and management reporting.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<section id="skills">
 
-<h2 class="section-title">Skills</h2>
 
-<div class="skills-container">
+<!-- ========================================================= -->
+<!-- EXPERIENCE -->
+<!-- ========================================================= -->
 
-<div>
+<section id="experience"
+         class="py-16 bg-slate-50">
 
-<div class="skill">
-<div class="skill-name">Microsoft Excel</div>
-<div class="progress">
-<div class="progress-bar" style="width:95%"></div>
-</div>
-</div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-<div class="skill">
-<div class="skill-name">Power BI</div>
-<div class="progress">
-<div class="progress-bar" style="width:85%"></div>
-</div>
-</div>
+        <div class="text-center max-w-3xl mx-auto mb-16">
 
-<div class="skill">
-<div class="skill-name">SQL</div>
-<div class="progress">
-<div class="progress-bar" style="width:75%"></div>
-</div>
-</div>
+            <h2 class="text-xs font-bold text-blue-600
+                       uppercase tracking-widest mb-2">
 
-<div class="skill">
-<div class="skill-name">VBA</div>
-<div class="progress">
-<div class="progress-bar" style="width:85%"></div>
-</div>
-</div>
+                Work History
 
-</div>
+            </h2>
 
-<div>
+            <h3 class="text-2xl sm:text-3xl
+                       font-extrabold text-slate-900">
 
-<div class="skill">
-<div class="skill-name">Power Query</div>
-<div class="progress">
-<div class="progress-bar" style="width:85%"></div>
-</div>
-</div>
+                Professional Career Journey
 
-<div class="skill">
-<div class="skill-name">Revenue Assurance</div>
-<div class="progress">
-<div class="progress-bar" style="width:95%"></div>
-</div>
-</div>
+            </h3>
 
-<div class="skill">
-<div class="skill-name">Telecom Audit</div>
-<div class="progress">
-<div class="progress-bar" style="width:95%"></div>
-</div>
-</div>
+            <p class="mt-3 text-slate-600 text-sm sm:text-base">
 
-<div class="skill">
-<div class="skill-name">MIS Reporting</div>
-<div class="progress">
-<div class="progress-bar" style="width:90%"></div>
-</div>
-</div>
+                Experience across Telecom Audit,
+                Healthcare RCM and operational analytics.
 
-</div>
+            </p>
 
-</div>
+        </div>
+
+
+
+        <div class="relative border-l-2 border-slate-300
+                    pl-6 sm:pl-8 ml-2 sm:ml-6 space-y-12">
+
+
+            <!-- ================================================= -->
+            <!-- LYCATEL -->
+            <!-- ================================================= -->
+
+            <div class="relative">
+
+                <div class="absolute -left-[31px] sm:-left-[39px]
+                            top-1.5 w-5 h-5 rounded-full
+                            bg-blue-600 border-4
+                            border-slate-50 shadow-md">
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8
+                            space-y-4 border border-slate-200
+                            hover:border-blue-400 transition-all">
+
+                    <div class="flex flex-wrap items-center
+                                justify-between gap-2
+                                border-b border-slate-200/80 pb-4">
+
+                        <div>
+
+                            <span class="bg-blue-100 text-blue-800
+                                         text-xs font-bold
+                                         px-2.5 py-1 rounded-md">
+
+                                Present Role
+
+                            </span>
+
+                            <h4 class="text-xl font-bold
+                                       text-slate-900 mt-1">
+
+                                Sales Audit Analyst
+
+                            </h4>
+
+                            <h5 class="text-sm font-semibold text-blue-600">
+
+                                LYCATEL BPO PVT LTD —
+                                Chennai, Tamil Nadu
+
+                            </h5>
+
+                        </div>
+
+
+                        <span class="text-xs font-semibold
+                                     text-slate-500
+                                     bg-slate-100
+                                     px-3 py-1.5 rounded-full">
+
+                            Aug 2025 – Present
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-sm text-slate-600 leading-relaxed">
+
+                        Supporting telecom retailer incentive
+                        audits, validation, reconciliation and
+                        MIS reporting across European markets.
+
+                    </p>
+
+
+                    <div class="grid grid-cols-1 md:grid-cols-2
+                                gap-3 text-xs text-slate-700">
+
+                        <div class="flex items-start gap-2">
+
+                            <i class="fa-solid fa-circle-check
+                                      text-blue-600 mt-0.5">
+                            </i>
+
+                            <span>
+                                Validate retailer incentive amounts
+                                against pricing models and business rules.
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-start gap-2">
+
+                            <i class="fa-solid fa-circle-check
+                                      text-blue-600 mt-0.5">
+                            </i>
+
+                            <span>
+                                Perform reconciliation and identify
+                                missing commissions and data mismatches.
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-start gap-2">
+
+                            <i class="fa-solid fa-circle-check
+                                      text-blue-600 mt-0.5">
+                            </i>
+
+                            <span>
+                                Use Advanced Excel for validation,
+                                variance analysis and reporting.
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-start gap-2">
+
+                            <i class="fa-solid fa-circle-check
+                                      text-blue-600 mt-0.5">
+                            </i>
+
+                            <span>
+                                Prepare MIS reports and support
+                                Power BI dashboard development.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pt-2 flex flex-wrap gap-2">
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            Telecom Audit
+                        </span>
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            Advanced Excel
+                        </span>
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            Power BI
+                        </span>
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            MIS
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- OMEGA -->
+            <!-- ================================================= -->
+
+            <div class="relative">
+
+                <div class="absolute -left-[31px] sm:-left-[39px]
+                            top-1.5 w-5 h-5 rounded-full
+                            bg-slate-400 border-4
+                            border-slate-50">
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8
+                            space-y-4 border border-slate-200
+                            hover:border-blue-400 transition-all">
+
+                    <div class="flex flex-wrap items-center
+                                justify-between gap-2
+                                border-b border-slate-200/80 pb-4">
+
+                        <div>
+
+                            <h4 class="text-xl font-bold text-slate-900">
+                                Senior Process Executive
+                            </h4>
+
+                            <h5 class="text-sm font-semibold text-blue-600">
+
+                                OMEGA HEALTHCARE PVT LTD —
+                                Chennai, Tamil Nadu
+
+                            </h5>
+
+                        </div>
+
+
+                        <span class="text-xs font-semibold
+                                     text-slate-500
+                                     bg-slate-100
+                                     px-3 py-1.5 rounded-full">
+
+                            Apr 2017 – Jun 2024
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-sm text-slate-600 leading-relaxed">
+
+                        Worked across Healthcare Revenue Cycle
+                        Management operations including AR analysis,
+                        payment posting, credit balance, refunds,
+                        claims and denial management.
+
+                    </p>
+
+
+                    <div class="grid grid-cols-1 md:grid-cols-2
+                                gap-3 text-xs text-slate-700">
+
+                        <div class="flex items-start gap-2">
+
+                            <i class="fa-solid fa-circle-check
+                                      text-emerald-600 mt-0.5">
+                            </i>
+
+                            <span>
+                                Managed credit balance and
+                                overpayment processes.
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-start gap-2">
+
+                            <i class="fa-solid fa-circle-check
+                                      text-emerald-600 mt-0.5">
+                            </i>
+
+                            <span>
+                                Supported Medicare and Medicaid
+                                refund reporting.
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-start gap-2">
+
+                            <i class="fa-solid fa-circle-check
+                                      text-emerald-600 mt-0.5">
+                            </i>
+
+                            <span>
+                                Prepared operational MIS reports
+                                using Excel.
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-start gap-2">
+
+                            <i class="fa-solid fa-circle-check
+                                      text-emerald-600 mt-0.5">
+                            </i>
+
+                            <span>
+                                Worked with EPIC, Connex,
+                                E-Paces and payer guidelines.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pt-2 flex flex-wrap gap-2">
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            Healthcare RCM
+                        </span>
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            EPIC
+                        </span>
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            Medicare / Medicaid
+                        </span>
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            MIS
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- E4E -->
+            <!-- ================================================= -->
+
+            <div class="relative">
+
+                <div class="absolute -left-[31px] sm:-left-[39px]
+                            top-1.5 w-5 h-5 rounded-full
+                            bg-slate-300 border-4
+                            border-slate-50">
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-6 sm:p-8
+                            space-y-4 border border-slate-200
+                            hover:border-blue-400 transition-all">
+
+                    <div class="flex flex-wrap items-center
+                                justify-between gap-2
+                                border-b border-slate-200/80 pb-4">
+
+                        <div>
+
+                            <h4 class="text-xl font-bold text-slate-900">
+                                Process Executive
+                            </h4>
+
+                            <h5 class="text-sm font-semibold text-blue-600">
+
+                                E4E HEALTHCARE BUSINESS SERVICES —
+                                Chennai, Tamil Nadu
+
+                            </h5>
+
+                        </div>
+
+
+                        <span class="text-xs font-semibold
+                                     text-slate-500
+                                     bg-slate-100
+                                     px-3 py-1.5 rounded-full">
+
+                            Feb 2014 – Sep 2016
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-sm text-slate-600 leading-relaxed">
+
+                        Supported Healthcare RCM and EPIC-related
+                        implementation activities for major
+                        healthcare projects.
+
+                    </p>
+
+
+                    <div class="grid grid-cols-1 md:grid-cols-2
+                                gap-3 text-xs text-slate-700">
+
+                        <div class="flex items-start gap-2">
+
+                            <i class="fa-solid fa-circle-check
+                                      text-slate-600 mt-0.5">
+                            </i>
+
+                            <span>
+                                Reconciled credit balance discrepancies.
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-start gap-2">
+
+                            <i class="fa-solid fa-circle-check
+                                      text-slate-600 mt-0.5">
+                            </i>
+
+                            <span>
+                                Supported refund authorization
+                                and documentation processes.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pt-2 flex flex-wrap gap-2">
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            EPIC
+                        </span>
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            RCM
+                        </span>
+
+                        <span class="text-[11px] font-semibold
+                                     bg-slate-100 text-slate-700
+                                     px-2.5 py-1 rounded">
+                            Reconciliation
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<section id="experience">
 
-<h2 class="section-title">Professional Experience</h2>
 
-<div class="timeline">
+<!-- ========================================================= -->
+<!-- PROJECTS -->
+<!-- ========================================================= -->
 
-<div class="timeline-item">
+<section id="projects"
+         class="py-16 bg-white border-y border-slate-200">
 
-<h3>Sales Audit Analyst - Lycatel</h3>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-<p>
-Telecom audit, revenue assurance, incentive validation,
-commission calculations, retailer reconciliation,
-MIS reporting, Power BI dashboards, and reporting automation.
-</p>
+        <div class="text-center max-w-3xl mx-auto mb-16">
 
-</div>
+            <h2 class="text-xs font-bold text-blue-600
+                       uppercase tracking-widest mb-2">
 
-<div class="timeline-item">
+                Systems & Impact
 
-<h3>Senior Process Executive - Omega Healthcare</h3>
+            </h2>
 
-<p>
-Healthcare Revenue Cycle Management, credit balance audits,
-claim analysis, revenue reporting, and process improvement.
-</p>
+            <h3 class="text-2xl sm:text-3xl
+                       font-extrabold text-slate-900">
 
-</div>
+                Key Projects & Implementation Highlights
 
-<div class="timeline-item">
+            </h3>
 
-<h3>Process Executive - E4E Healthcare Business Services</h3>
+            <p class="mt-3 text-slate-600 text-sm sm:text-base">
 
-<p>
-Medical billing, claim validation, revenue reporting,
-reconciliation, and operational analytics.
-</p>
+                Operational audit, healthcare RCM and
+                SAP learning projects.
 
-</div>
+            </p>
 
-</div>
+        </div>
+
+
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="glass-card rounded-2xl overflow-hidden
+                        border border-slate-200
+                        flex flex-col justify-between
+                        hover:shadow-xl transition-all">
+
+                <div>
+
+                    <div class="bg-gradient-to-r
+                                from-slate-900 to-slate-800
+                                p-6 text-white">
+
+                        <div class="flex items-center
+                                    justify-between mb-3">
+
+                            <span class="bg-blue-500/20
+                                         text-blue-300
+                                         text-[11px] font-bold
+                                         px-2.5 py-1 rounded
+                                         border border-blue-500/30
+                                         uppercase">
+
+                                Telecom Revenue
+
+                            </span>
+
+                            <i class="fa-solid fa-globe
+                                      text-cyan-400 text-xl">
+                            </i>
+
+                        </div>
+
+
+                        <h4 class="font-bold text-lg">
+                            European Telecom Commission Audit
+                        </h4>
+
+                        <p class="text-xs text-slate-300 mt-1">
+                            Lycatel BPO • European Markets
+                        </p>
+
+                    </div>
+
+
+                    <div class="p-6 space-y-4">
+
+                        <p class="text-xs text-slate-600 leading-relaxed">
+
+                            Telecom retailer incentive validation,
+                            reconciliation, pricing-rule checks
+                            and MIS reporting.
+
+                        </p>
+
+
+                        <ul class="text-xs text-slate-700 space-y-2">
+
+                            <li class="flex items-center gap-2">
+
+                                <i class="fa-solid fa-angle-right
+                                          text-blue-600">
+                                </i>
+
+                                Pricing and commission validation.
+
+                            </li>
+
+
+                            <li class="flex items-center gap-2">
+
+                                <i class="fa-solid fa-angle-right
+                                          text-blue-600">
+                                </i>
+
+                                Reconciliation and variance analysis.
+
+                            </li>
+
+
+                            <li class="flex items-center gap-2">
+
+                                <i class="fa-solid fa-angle-right
+                                          text-blue-600">
+                                </i>
+
+                                Excel and Power BI reporting.
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <div class="px-6 pb-6 pt-2
+                            border-t border-slate-100
+                            flex items-center justify-between">
+
+                    <span class="text-xs font-bold text-slate-500">
+                        Excel • Power BI • SQL
+                    </span>
+
+                    <span class="text-xs text-blue-600 font-bold">
+                        Telecom Audit
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="glass-card rounded-2xl overflow-hidden
+                        border border-slate-200
+                        flex flex-col justify-between
+                        hover:shadow-xl transition-all">
+
+                <div>
+
+                    <div class="bg-gradient-to-r
+                                from-blue-900 to-indigo-950
+                                p-6 text-white">
+
+                        <div class="flex items-center
+                                    justify-between mb-3">
+
+                            <span class="bg-emerald-500/20
+                                         text-emerald-300
+                                         text-[11px] font-bold
+                                         px-2.5 py-1 rounded
+                                         border border-emerald-500/30
+                                         uppercase">
+
+                                Healthcare RCM
+
+                            </span>
+
+                            <i class="fa-solid fa-notes-medical
+                                      text-emerald-400 text-xl">
+                            </i>
+
+                        </div>
+
+
+                        <h4 class="font-bold text-lg">
+                            EPIC Credit Balance & Recoupment
+                        </h4>
+
+                        <p class="text-xs text-blue-200 mt-1">
+                            Omega Healthcare
+                        </p>
+
+                    </div>
+
+
+                    <div class="p-6 space-y-4">
+
+                        <p class="text-xs text-slate-600 leading-relaxed">
+
+                            Credit balance, refund,
+                            reconciliation and
+                            overpayment processes.
+
+                        </p>
+
+
+                        <ul class="text-xs text-slate-700 space-y-2">
+
+                            <li class="flex items-center gap-2">
+
+                                <i class="fa-solid fa-angle-right
+                                          text-emerald-600">
+                                </i>
+
+                                Credit balance reconciliation.
+
+                            </li>
+
+
+                            <li class="flex items-center gap-2">
+
+                                <i class="fa-solid fa-angle-right
+                                          text-emerald-600">
+                                </i>
+
+                                Medicare / Medicaid reporting.
+
+                            </li>
+
+
+                            <li class="flex items-center gap-2">
+
+                                <i class="fa-solid fa-angle-right
+                                          text-emerald-600">
+                                </i>
+
+                                Excel-based operational reporting.
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <div class="px-6 pb-6 pt-2
+                            border-t border-slate-100
+                            flex items-center justify-between">
+
+                    <span class="text-xs font-bold text-slate-500">
+                        EPIC • Excel • RCM
+                    </span>
+
+                    <span class="text-xs text-emerald-600 font-bold">
+                        Healthcare
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="glass-card rounded-2xl overflow-hidden
+                        border border-slate-200
+                        flex flex-col justify-between
+                        hover:shadow-xl transition-all">
+
+                <div>
+
+                    <div class="bg-gradient-to-r
+                                from-sky-950 to-slate-900
+                                p-6 text-white">
+
+                        <div class="flex items-center
+                                    justify-between mb-3">
+
+                            <span class="bg-sky-500/20
+                                         text-sky-300
+                                         text-[11px] font-bold
+                                         px-2.5 py-1 rounded
+                                         border border-sky-500/30
+                                         uppercase">
+
+                                Enterprise ERP
+
+                            </span>
+
+                            <i class="fa-solid fa-boxes-stacked
+                                      text-sky-400 text-xl">
+                            </i>
+
+                        </div>
+
+
+                        <h4 class="font-bold text-lg">
+                            SAP S/4HANA SD Learning Project
+                        </h4>
+
+                        <p class="text-xs text-sky-200 mt-1">
+                            Professional Development
+                        </p>
+
+                    </div>
+
+
+                    <div class="p-6 space-y-4">
+
+                        <p class="text-xs text-slate-600 leading-relaxed">
+
+                            Ongoing SAP S/4HANA SD learning
+                            focused on the Order-to-Cash lifecycle.
+
+                        </p>
+
+
+                        <ul class="text-xs text-slate-700 space-y-2">
+
+                            <li class="flex items-center gap-2">
+
+                                <i class="fa-solid fa-angle-right
+                                          text-sky-600">
+                                </i>
+
+                                Sales Order and Quotation concepts.
+
+                            </li>
+
+
+                            <li class="flex items-center gap-2">
+
+                                <i class="fa-solid fa-angle-right
+                                          text-sky-600">
+                                </i>
+
+                                Pricing and billing processes.
+
+                            </li>
+
+
+                            <li class="flex items-center gap-2">
+
+                                <i class="fa-solid fa-angle-right
+                                          text-sky-600">
+                                </i>
+
+                                Order-to-Cash process understanding.
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <div class="px-6 pb-6 pt-2
+                            border-t border-slate-100
+                            flex items-center justify-between">
+
+                    <span class="text-xs font-bold text-slate-500">
+                        SAP S/4HANA SD
+                    </span>
+
+                    <span class="text-xs text-sky-600 font-bold">
+                        Learning
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<section id="projects">
 
-<h2 class="section-title">Analytics Projects</h2>
 
-<div class="projects">
+<!-- ========================================================= -->
+<!-- EDUCATION -->
+<!-- ========================================================= -->
 
-<div class="project-card">
+<section id="education"
+         class="py-16 bg-slate-50">
 
-https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-<div class="project-content">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-<h3>Telecom Revenue Assurance Dashboard</h3>
 
-<p>
-Country-wise revenue tracking,
-leakage detection, variance analysis,
-retailer commission validation,
-and audit KPI monitoring.
-</p>
+            <!-- CERTIFICATIONS -->
 
-</div>
+            <div class="space-y-6">
 
-</div>
+                <div>
 
-<div class="project-card">
+                    <h2 class="text-xs font-bold text-blue-600
+                               uppercase tracking-widest mb-1">
 
-https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=80
+                        Continuous Growth
 
-<div class="project-content">
+                    </h2>
 
-<h3>Sales Commission Audit Dashboard</h3>
+                    <h3 class="text-2xl font-extrabold
+                               text-slate-900">
 
-<p>
-Performance tracking, incentive validation,
-retailer profitability analysis,
-and exception reporting.
-</p>
+                        Certifications & Upskilling
 
-</div>
+                    </h3>
 
-</div>
+                </div>
 
-<div class="project-card">
 
-https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80
+                <!-- POWER BI -->
 
-<div class="project-content">
+                <div class="glass-card rounded-2xl p-6
+                            border border-slate-200
+                            flex items-start gap-4">
 
-<h3>Healthcare Credit Balance Dashboard</h3>
+                    <div class="w-12 h-12 rounded-xl
+                                bg-amber-500/10
+                                text-amber-600
+                                flex items-center justify-center
+                                text-2xl shrink-0">
 
-<p>
-Credit aging, payer analysis,
-refund status tracking,
-and operational reporting.
-</p>
+                        <i class="fa-solid fa-award"></i>
 
-</div>
+                    </div>
 
-</div>
 
-<div class="project-card">
+                    <div>
 
-https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80
+                        <span class="text-[11px] font-bold
+                                     text-amber-600 uppercase">
 
-<div class="project-content">
+                            Professional Training
 
-<h3>Excel VBA Automation</h3>
+                        </span>
 
-<p>
-Automated MIS reporting,
-workbook consolidation,
-data validation,
-and process automation using VBA.
-</p>
+                        <h4 class="font-bold text-slate-900">
+                            Microsoft Power BI
+                        </h4>
 
-</div>
+                        <p class="text-xs text-slate-600 mt-1">
+                            FITA Academy, Chennai
+                        </p>
 
-</div>
+                        <p class="text-xs text-slate-500 mt-2">
 
-</div>
+                            Power BI, DAX, Power Query,
+                            data modeling and dashboard development.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SAP -->
+
+                <div class="glass-card rounded-2xl p-6
+                            border border-slate-200
+                            flex items-start gap-4">
+
+                    <div class="w-12 h-12 rounded-xl
+                                bg-sky-500/10
+                                text-sky-600
+                                flex items-center justify-center
+                                text-2xl shrink-0">
+
+                        <i class="fa-solid fa-laptop-code"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="text-[11px] font-bold
+                                     text-sky-600 uppercase">
+
+                            Ongoing Learning
+
+                        </span>
+
+                        <h4 class="font-bold text-slate-900">
+
+                            SAP S/4HANA SD
+
+                        </h4>
+
+                        <p class="text-xs text-slate-600 mt-1">
+                            SAP Professional Upskilling
+                        </p>
+
+                        <p class="text-xs text-slate-500 mt-2">
+
+                            Learning Sales & Distribution,
+                            Order-to-Cash, pricing,
+                            sales orders and billing.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EDUCATION -->
+
+            <div class="space-y-6">
+
+                <div>
+
+                    <h2 class="text-xs font-bold text-blue-600
+                               uppercase tracking-widest mb-1">
+
+                        Academic Background
+
+                    </h2>
+
+                    <h3 class="text-2xl font-extrabold
+                               text-slate-900">
+
+                        Formal Education
+
+                    </h3>
+
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-6
+                            border border-slate-200 space-y-6">
+
+
+                    <!-- DEGREE -->
+
+                    <div class="flex items-start
+                                justify-between
+                                border-b border-slate-200
+                                pb-4">
+
+                        <div>
+
+                            <h4 class="font-bold text-slate-900">
+                                Bachelor of Technology
+                            </h4>
+
+                            <p class="text-xs font-semibold
+                                      text-blue-600 mt-0.5">
+
+                                Information Technology
+
+                            </p>
+
+                            <p class="text-xs text-slate-500 mt-1">
+
+                                Christ College of Engineering
+                                and Technology /
+                                Pondicherry University
+
+                            </p>
+
+                        </div>
+
+
+                        <span class="text-xs font-semibold
+                                     text-slate-500
+                                     bg-slate-100
+                                     px-3 py-1 rounded-full">
+
+                            2021
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- LEARNING -->
+
+                    <div>
+
+                        <h4 class="font-bold text-slate-900">
+                            Current Professional Learning
+                        </h4>
+
+                        <p class="text-xs text-slate-600 mt-2">
+
+                            SAP S/4HANA SD,
+                            Power BI,
+                            SQL and Data Analytics.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<section id="certifications">
 
-<h2 class="section-title">Certifications & Learning</h2>
 
-<div class="certificates">
+<!-- ========================================================= -->
+<!-- CONTACT -->
+<!-- ========================================================= -->
 
-<div class="cert">
-Power BI & Data Analytics
-</div>
+<footer id="contact"
+        class="gradient-bg text-white pt-16 pb-12">
 
-<div class="cert">
-Advanced Excel & VBA
-</div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-<div class="cert">
-SQL & Database Fundamentals
-</div>
+        <div class="max-w-4xl mx-auto text-center
+                    space-y-6 mb-12">
 
-<div class="cert">
-SAP Learning Journey
-</div>
 
-</div>
+            <span class="bg-blue-500/20 text-blue-300
+                         text-xs font-bold px-3 py-1.5
+                         rounded-full border border-blue-500/30
+                         uppercase">
 
-</section>
+                Let's Connect
 
-<section id="contact">
+            </span>
 
-<h2 class="section-title">Contact</h2>
 
-<div class="contact">
+            <h2 class="text-3xl sm:text-4xl
+                       font-extrabold">
 
-<p><strong>Name:</strong> Sasidharan Balasundaram</p>
+                Let's Connect for Opportunities
 
-<p><strong>Email:</strong> your-email@example.com</p>
+            </h2>
 
-<p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
 
-<p><strong>Location:</strong> Chennai, Tamil Nadu, India</p>
+            <p class="text-slate-300 text-sm sm:text-base
+                      leading-relaxed">
 
-<p><strong>LinkedIn:</strong> linkedin.com/in/your-profile</p>
+                Open to opportunities in Audit,
+                MIS, Data Analytics, Power BI,
+                Telecom Operations and related roles.
 
-</div>
+            </p>
 
-</section>
 
-<footer>
 
-<p>
-© 2026 Sasidharan Balasundaram | Audit Analytics Portfolio
-</p>
+            <!-- CONTACT BUTTONS -->
+
+            <div class="flex flex-wrap justify-center
+                        gap-4 pt-4">
+
+
+                <!-- EMAIL -->
+
+                <a href="mailto:sasiiharii@gmail.com"
+                   class="bg-blue-600 hover:bg-blue-500
+                          text-white font-semibold
+                          px-6 py-3 rounded-xl
+                          transition-all
+                          shadow-lg shadow-blue-600/30
+                          flex items-center gap-2">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    Send Email
+
+                </a>
+
+
+
+                <!-- PHONE -->
+
+                <a href="tel:+919962587200"
+                   class="bg-slate-800 hover:bg-slate-700
+                          text-white font-semibold
+                          px-6 py-3 rounded-xl
+                          border border-slate-700
+                          flex items-center gap-2">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    Call Me
+
+                </a>
+
+
+
+                <!-- LINKEDIN -->
+
+                <a href="https://www.linkedin.com/in/sasidharan-balasundaram-a875458b/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="bg-slate-800 hover:bg-slate-700
+                          text-white font-semibold
+                          px-6 py-3 rounded-xl
+                          border border-slate-700
+                          flex items-center gap-2">
+
+                    <i class="fa-brands fa-linkedin"></i>
+
+                    LinkedIn
+
+                </a>
+
+
+
+                <!-- VIEW RESUME -->
+
+                <a href="Sasidharan_Balasundaram_Resume.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="bg-white hover:bg-slate-100
+                          text-slate-900
+                          font-semibold
+                          px-6 py-3 rounded-xl
+                          flex items-center gap-2">
+
+                    <i class="fa-solid fa-eye text-blue-600"></i>
+
+                    View Resume
+
+                </a>
+
+
+
+                <!-- DOWNLOAD RESUME -->
+
+                <a href="Sasidharan_Balasundaram_Resume.pdf"
+                   download="Sasidharan_Balasundaram_Resume.pdf"
+                   class="bg-emerald-600
+                          hover:bg-emerald-500
+                          text-white font-semibold
+                          px-6 py-3 rounded-xl
+                          transition-all
+                          shadow-lg shadow-emerald-600/30
+                          flex items-center gap-2">
+
+                    <i class="fa-solid fa-download"></i>
+
+                    Download Resume
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="border-t border-slate-800
+                    pt-8 flex flex-col
+                    sm:flex-row items-center
+                    justify-between
+                    text-xs text-slate-400
+                    gap-4">
+
+            <p>
+                © 2026 Sasidharan Balasundaram.
+                All rights reserved.
+            </p>
+
+            <p>
+                Chennai, Tamil Nadu, India
+            </p>
+
+        </div>
+
+    </div>
 
 </footer>
 
+
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
 <script>
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-anchor.addEventListener('click', function (e) {
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-e.preventDefault();
+const menuBtn =
+    document.getElementById('mobile-menu-btn');
 
-document.querySelector(this.getAttribute('href'))
-.scrollIntoView({
-behavior: 'smooth'
+const mobileMenu =
+    document.getElementById('mobile-menu');
+
+
+menuBtn.addEventListener('click', () => {
+
+    mobileMenu.classList.toggle('hidden');
+
 });
 
-});
+
+
+/* Close mobile menu when clicking a link */
+
+const mobileLinks =
+    mobileMenu.querySelectorAll('a');
+
+
+mobileLinks.forEach(link => {
+
+    link.addEventListener('click', () => {
+
+        mobileMenu.classList.add('hidden');
+
+    });
 
 });
+
+
+
+/* =========================================================
+   SKILL FILTER
+========================================================= */
+
+const filterBtns =
+    document.querySelectorAll('.skill-filter-btn');
+
+const skillCards =
+    document.querySelectorAll('.skill-card');
+
+
+filterBtns.forEach(btn => {
+
+    btn.addEventListener('click', () => {
+
+
+        /* Reset buttons */
+
+        filterBtns.forEach(button => {
+
+            button.classList.remove(
+                'active',
+                'bg-slate-900',
+                'text-white'
+            );
+
+            button.classList.add(
+                'bg-slate-100',
+                'text-slate-600'
+            );
+
+        });
+
+
+        /* Activate selected button */
+
+        btn.classList.add(
+            'active',
+            'bg-slate-900',
+            'text-white'
+        );
+
+        btn.classList.remove(
+            'bg-slate-100',
+            'text-slate-600'
+        );
+
+
+        /* Get selected category */
+
+        const category =
+            btn.getAttribute('data-category');
+
+
+        /* Filter cards */
+
+        skillCards.forEach(card => {
+
+            const cardCategory =
+                card.getAttribute('data-category');
+
+
+            if (
+                category === 'all' ||
+                cardCategory === category
+            ) {
+
+                card.style.display = 'block';
+
+            } else {
+
+                card.style.display = 'none';
+
+            }
+
+        });
+
+    });
+
+});
+
 
 </script>
+
 
 </body>
 </html>
